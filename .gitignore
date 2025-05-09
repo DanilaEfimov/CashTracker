@@ -1,0 +1,16 @@
+# ==== Qt builds ====
+build/
+release/
+debug/
+*.pro.user
+*.qmake.stash
+
+# ==== Python ====
+__pycache__/
+*.py[cod]
+py_backend/venv/
+py_backend/.idea/
+
+# ==== Logs ====
+logs/
+*.log
