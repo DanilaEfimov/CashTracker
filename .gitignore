@@ -1,5 +1,5 @@
 # ==== Qt builds ====
-build/
+app/build/
 release/
 debug/
 *.pro.user

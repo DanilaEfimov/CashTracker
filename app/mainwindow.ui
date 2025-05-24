@@ -23,8 +23,50 @@
      <height>17</height>
     </rect>
    </property>
+   <widget class="QMenu" name="viewmenu">
+    <property name="title">
+     <string>view</string>
+    </property>
+    <addaction name="actionadd_notes"/>
+    <addaction name="actionprogress"/>
+    <addaction name="actionconverter"/>
+   </widget>
+   <widget class="QMenu" name="menuexport">
+    <property name="title">
+     <string>export</string>
+    </property>
+    <addaction name="actionjson"/>
+    <addaction name="actioncsv"/>
+   </widget>
+   <addaction name="viewmenu"/>
+   <addaction name="menuexport"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionadd_notes">
+   <property name="text">
+    <string>add notes</string>
+   </property>
+  </action>
+  <action name="actionprogress">
+   <property name="text">
+    <string>progress</string>
+   </property>
+  </action>
+  <action name="actionconverter">
+   <property name="text">
+    <string>converter</string>
+   </property>
+  </action>
+  <action name="actionjson">
+   <property name="text">
+    <string>json</string>
+   </property>
+  </action>
+  <action name="actioncsv">
+   <property name="text">
+    <string>csv</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
