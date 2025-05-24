@@ -16,7 +16,9 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
-    ui/mainwindow.ui
+    ui/converter.ui \
+    ui/dbinterface.ui \
+    ui/progress.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
