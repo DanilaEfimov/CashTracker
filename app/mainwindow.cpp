@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete this->ui;
+    delete ui;
 
     delete this->converter_w;
     delete this->progress_w;
@@ -41,10 +41,13 @@ void MainWindow::setupStyle()
     style.open(QFile::ReadOnly);
     QString qss = style.readAll();
     this->setStyleSheet(qss);
+    style.close();
 
     //icon
     QIcon icon(ICON_CASHTRACKER);
     this->setWindowIcon(icon);
+
+    this->setWindowTitle("Cash Tracker");
 }
 
 void MainWindow::setupStack()
@@ -110,6 +113,8 @@ void MainWindow::setLightTheme()
     style.open(QFile::ReadOnly);
     QString qss = style.readAll();
     this->setStyleSheet(qss);
+
+    style.close();
 }
 
 void MainWindow::setDarkTheme()
@@ -120,4 +125,6 @@ void MainWindow::setDarkTheme()
     style.open(QFile::ReadOnly);
     QString qss = style.readAll();
     this->setStyleSheet(qss);
+
+    style.close();
 }

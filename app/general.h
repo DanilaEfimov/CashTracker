@@ -19,6 +19,7 @@
 #define BUFFER_PATH         "../buffer/buffer.txt"
 #define RESPONSE_PATH       "../buffer/response.txt"
 #define ARGUMENT_PATH       "../buffer/args.txt"
+#define PY_BACK_PATH        "../py_backend/processor.py"
 
 // api response types
 #define TEXT_T      "text"
@@ -52,6 +53,7 @@ enum exitcodes{
     network_err, protocol_err, response_err, openfile_err,
     ready_to_read,
     parse_err,
+    run_err,
     undefined = -1
 };
 

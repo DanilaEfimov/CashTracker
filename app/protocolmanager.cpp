@@ -3,9 +3,10 @@
 
 #include <QFile>
 #include <QTextStream>
-#ifndef QT_NO_DEBUG
+#ifdef QT_DEBUG
     #include <QDebug>
 #endif
+#include <QProcess>
 
 int protocolManager::sendRequest(const protocol &request, const QString path)
 {
@@ -13,7 +14,7 @@ int protocolManager::sendRequest(const protocol &request, const QString path)
     buffer.open(QIODevice::WriteOnly | QIODevice::Text);
 
     if(!buffer.isOpen()){
-        #ifndef QT_NO_DEBUG
+        #ifdef QT_DEBUG
             qDebug() << "failed to open " << path
                  << "\n[" << buffer.errorString() << "]";
         #endif
@@ -40,7 +41,7 @@ int protocolManager::readAnswer(const QMap<QString, int> & exits, const QString 
     answer.open(QIODevice::ReadOnly);
 
     if(!answer.isOpen()){
-        #ifndef QT_NO_DEBUG
+        #ifdef QT_DEBUG
             qDebug() << "failed to open " << path
                      << "\n[" << answer.errorString() << "]";
         #endif
@@ -49,6 +50,7 @@ int protocolManager::readAnswer(const QMap<QString, int> & exits, const QString 
 
     QTextStream ts(&answer);
     QString res = ts.readLine();
+    answer.close();
 
     if(exits.find(res) != exits.end()){
         return exits[res];
@@ -66,11 +68,10 @@ int protocolManager::readArgs(data &response, const QString path)
     args.open(QIODevice::ReadOnly | QIODevice::Text);
 
     if(!args.isOpen()){
-        #ifndef QT_NO_DEBUG
+        #ifdef QT_DEBUG
             qDebug() << "failed to open " << path
                  << "\n[" << args.errorString() << "]";
         #endif
-        args.close();
         return openfile_err;
     }
 
@@ -81,7 +82,7 @@ int protocolManager::readArgs(data &response, const QString path)
     for (int i = 0; i < sign.size(); i++) {
         line = ts.readLine();
         if (line.isNull()) {
-            #ifndef QT_NO_DEBUG
+            #ifdef QT_DEBUG
                 qDebug() << "uncorrect response file format "
                     << path;
             #endif
@@ -91,6 +92,28 @@ int protocolManager::readArgs(data &response, const QString path)
 
         // trimmed for rmoving pre/post-fix spaces/tabs/new-line-char
         response.readArg(line.trimmed(), sign[i].trimmed());
+    }
+
+    args.close();
+    return success;
+}
+
+int protocolManager::runBackend(const QString& path)
+{
+
+}
+
+int protocolManager::runUtil(const QStringList& argv, const QString& path)
+{
+    QProcess util;
+    util.start(path, argv);
+
+    if(!util.waitForStarted()){
+        #ifdef QT_DEBUG
+            qDebug() << "failed to run util " << path
+                << "\nabout:\n" << util.errorString();
+        #endif
+        return run_err;
     }
 
     return success;
@@ -105,8 +128,10 @@ void data::readArg(const QString &value, const QString &sign)
     else if(sign == REAL_T) {this->dbl.append(value.toDouble());}
     else if(sign == INT_T)  {this->nums.append(value.toInt());}
     else if(sign == DATE_T) {this->dates.append(QDate::fromString(value));}
-    #ifndef QT_NO_DEBUG
+    else {
+    #ifdef QT_DEBUG
         qDebug() << "undefined argument type [data::readArg] "
             << sign;
     #endif
+    }
 }

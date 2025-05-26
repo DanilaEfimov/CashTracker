@@ -32,6 +32,8 @@ struct data {
 
 class protocolManager
 {
+    Q_OBJECT
+
 public:
     protocolManager() = default;
 
@@ -40,6 +42,9 @@ public:
                           const QString path = RESPONSE_PATH);
 
     static int readArgs(data& response, const QString path = RESPONSE_PATH);
+
+    static int runBackend(const QString& path);
+    static int runUtil(const QStringList& argv, const QString& path);
 };
 
 #endif // PROTOCOLMANAGER_H
