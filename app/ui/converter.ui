@@ -1,72 +1,422 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>converter</class>
+ <widget class="QWidget" name="converter">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>390</width>
+    <height>326</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Form</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="viewmenu">
-    <property name="title">
-     <string>view</string>
-    </property>
-    <addaction name="actionadd_notes"/>
-    <addaction name="actionprogress"/>
-    <addaction name="actionconverter"/>
-   </widget>
-   <widget class="QMenu" name="menuexport">
-    <property name="title">
-     <string>export</string>
-    </property>
-    <addaction name="actionjson"/>
-    <addaction name="actioncsv"/>
-   </widget>
-   <addaction name="viewmenu"/>
-   <addaction name="menuexport"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionadd_notes">
-   <property name="text">
-    <string>add notes</string>
-   </property>
-  </action>
-  <action name="actionprogress">
-   <property name="text">
-    <string>progress</string>
-   </property>
-  </action>
-  <action name="actionconverter">
-   <property name="text">
-    <string>converter</string>
-   </property>
-  </action>
-  <action name="actionjson">
-   <property name="text">
-    <string>json</string>
-   </property>
-  </action>
-  <action name="actioncsv">
-   <property name="text">
-    <string>csv</string>
-   </property>
-  </action>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1">
+      <widget class="QComboBox" name="comboBox_2">
+       <item>
+        <property name="text">
+         <string>USD — United States Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EUR — Euro</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GBP — Pound Sterling</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>JPY — Japanese Yen</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CNY — Chinese Yuan Renminbi</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CHF — Swiss Franc</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AUD — Australian Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CAD — Canadian Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NZD — New Zealand Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SEK — Swedish Krona</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NOK — Norwegian Krone</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DKK — Danish Krone</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>RUB — Russian Ruble</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PLN — Polish Zloty</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CZK — Czech Koruna</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HUF — Hungarian Forint</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TRY — Turkish Lira</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>INR — Indian Rupee</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BRL — Brazilian Real</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ZAR — South African Rand</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MXN — Mexican Peso</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SGD — Singapore Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HKD — Hong Kong Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>KRW — South Korean Won</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>THB — Thai Baht</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MYR — Malaysian Ringgit</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>IDR — Indonesian Rupiah</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VND — Vietnamese Dong</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AED — UAE Dirham</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SAR — Saudi Riyal</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EGP — Egyptian Pound</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>temp cur :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1" colspan="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>target cur :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" colspan="2">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>amount :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1" colspan="2">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="comboBox_3">
+       <item>
+        <property name="text">
+         <string>USD — United States Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EUR — Euro</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GBP — Pound Sterling</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>JPY — Japanese Yen</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CNY — Chinese Yuan Renminbi</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CHF — Swiss Franc</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AUD — Australian Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CAD — Canadian Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NZD — New Zealand Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SEK — Swedish Krona</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NOK — Norwegian Krone</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DKK — Danish Krone</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>RUB — Russian Ruble</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PLN — Polish Zloty</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CZK — Czech Koruna</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HUF — Hungarian Forint</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TRY — Turkish Lira</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>INR — Indian Rupee</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BRL — Brazilian Real</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ZAR — South African Rand</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MXN — Mexican Peso</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SGD — Singapore Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HKD — Hong Kong Dollar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>KRW — South Korean Won</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>THB — Thai Baht</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MYR — Malaysian Ringgit</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>IDR — Indonesian Rupiah</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VND — Vietnamese Dong</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AED — UAE Dirham</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SAR — Saudi Riyal</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EGP — Egyptian Pound</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>result :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+     <item row="7" column="2">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>convert</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

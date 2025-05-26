@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,16 +9,27 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    converter.cpp \
+    dbinterface.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    noteinterface.cpp \
+    progress.cpp
 
 HEADERS += \
-    mainwindow.h
+    converter.h \
+    dbinterface.h \
+    general.h \
+    mainwindow.h \
+    noteinterface.h \
+    progress.h
 
 FORMS += \
-    ui/converter.ui \
+    ui/mainwindow.ui \
+    ui/progress.ui \
+    ui/noteinterface.ui \
     ui/dbinterface.ui \
-    ui/progress.ui
+    ui/converter.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

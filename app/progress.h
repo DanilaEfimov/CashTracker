@@ -1,0 +1,22 @@
+#ifndef PROGRESS_H
+#define PROGRESS_H
+
+#include <QWidget>
+
+namespace Ui {
+class progress;
+}
+
+class progress : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit progress(QWidget *parent = nullptr);
+    ~progress();
+
+private:
+    Ui::progress *ui;
+};
+
+#endif // PROGRESS_H

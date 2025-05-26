@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>369</width>
+    <height>315</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>369</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menumenu">
+    <property name="title">
+     <string>menu</string>
+    </property>
+    <addaction name="actconverter"/>
+    <addaction name="actprogress"/>
+    <addaction name="actnoteint"/>
+    <addaction name="actdbint"/>
+   </widget>
+   <widget class="QMenu" name="menuview">
+    <property name="title">
+     <string>view</string>
+    </property>
+    <addaction name="actionlight_theme"/>
+    <addaction name="actiondark_theme"/>
+   </widget>
+   <addaction name="menumenu"/>
+   <addaction name="menuview"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actconverter">
+   <property name="text">
+    <string>converter</string>
+   </property>
+  </action>
+  <action name="actprogress">
+   <property name="text">
+    <string>progress</string>
+   </property>
+  </action>
+  <action name="actnoteint">
+   <property name="text">
+    <string>make note</string>
+   </property>
+  </action>
+  <action name="actdbint">
+   <property name="text">
+    <string>db interface</string>
+   </property>
+  </action>
+  <action name="actionlight_theme">
+   <property name="text">
+    <string>light theme</string>
+   </property>
+  </action>
+  <action name="actiondark_theme">
+   <property name="text">
+    <string>dark theme</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

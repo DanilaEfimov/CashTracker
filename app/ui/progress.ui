@@ -1,72 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>progress</class>
+ <widget class="QWidget" name="progress">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>329</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Form</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="viewmenu">
-    <property name="title">
-     <string>view</string>
-    </property>
-    <addaction name="actionadd_notes"/>
-    <addaction name="actionprogress"/>
-    <addaction name="actionconverter"/>
-   </widget>
-   <widget class="QMenu" name="menuexport">
-    <property name="title">
-     <string>export</string>
-    </property>
-    <addaction name="actionjson"/>
-    <addaction name="actioncsv"/>
-   </widget>
-   <addaction name="viewmenu"/>
-   <addaction name="menuexport"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionadd_notes">
-   <property name="text">
-    <string>add notes</string>
-   </property>
-  </action>
-  <action name="actionprogress">
-   <property name="text">
-    <string>progress</string>
-   </property>
-  </action>
-  <action name="actionconverter">
-   <property name="text">
-    <string>converter</string>
-   </property>
-  </action>
-  <action name="actionjson">
-   <property name="text">
-    <string>json</string>
-   </property>
-  </action>
-  <action name="actioncsv">
-   <property name="text">
-    <string>csv</string>
-   </property>
-  </action>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="4">
+    <widget class="QGraphicsView" name="graphic"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QComboBox" name="formatval">
+     <item>
+      <property name="text">
+       <string>json</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>csv</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="expotrb">
+     <property name="text">
+      <string>export</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QComboBox" name="periodval">
+     <item>
+      <property name="text">
+       <string>last week</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>last month</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>last year</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>all time</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QPushButton" name="update">
+     <property name="text">
+      <string>update</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
