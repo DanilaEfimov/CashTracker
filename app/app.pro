@@ -14,7 +14,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     noteinterface.cpp \
-    progress.cpp
+    progress.cpp \
+    protocolmanager.cpp
 
 HEADERS += \
     converter.h \
@@ -22,7 +23,8 @@ HEADERS += \
     general.h \
     mainwindow.h \
     noteinterface.h \
-    progress.h
+    progress.h \
+    protocolmanager.h
 
 FORMS += \
     ui/mainwindow.ui \
