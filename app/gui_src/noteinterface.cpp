@@ -1,4 +1,4 @@
-#include "noteinterface.h"
+#include "gui_src/noteinterface.h"
 #include "ui_noteinterface.h"
 
 noteinterface::noteinterface(QWidget *parent)

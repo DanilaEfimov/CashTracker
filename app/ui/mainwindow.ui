@@ -31,6 +31,7 @@
     <addaction name="actprogress"/>
     <addaction name="actnoteint"/>
     <addaction name="actdbint"/>
+    <addaction name="actnews"/>
    </widget>
    <widget class="QMenu" name="menuview">
     <property name="title">
@@ -71,6 +72,11 @@
   <action name="actiondark_theme">
    <property name="text">
     <string>dark theme</string>
+   </property>
+  </action>
+  <action name="actnews">
+   <property name="text">
+    <string>news</string>
    </property>
   </action>
  </widget>

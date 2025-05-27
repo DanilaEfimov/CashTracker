@@ -1,6 +1,9 @@
-#include "mainwindow.h"
+#include "gui_src/mainwindow.h"
 #include "ui_mainwindow.h"
 #include "general.h"
+
+#include "protocolmanager.h"
+#include "dbmanager.h"
 
 #include <QFile>
 #include <QString>
@@ -8,7 +11,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow), utilit(nullptr)
 {
     ui->setupUi(this);
     this->init();
@@ -58,11 +61,13 @@ void MainWindow::setupStack()
     this->progress_w    = new progress(this);
     this->noteint_w     = new noteinterface(this);
     this->dbint_w       = new dbinterface(this);
+    this->news_w        = new newland(this);
 
     this->views->addWidget(this->converter_w);  // index 0
     this->views->addWidget(this->progress_w);   // index 1
     this->views->addWidget(this->noteint_w);    // index 2
     this->views->addWidget(this->dbint_w);      // index 3
+    this->views->addWidget(this->news_w);       // index 4
 
     this->setCentralWidget(this->views);
 }
@@ -81,6 +86,9 @@ void MainWindow::setupBibds()
     });
     connect(ui->actdbint, &QAction::triggered, this, [=](){
         this->views->setCurrentWidget(this->dbint_w);
+    });
+    connect(ui->actnews, &QAction::triggered, this, [=](){
+        this->views->setCurrentWidget(this->news_w);
     });
 
     // view menu

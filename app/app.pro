@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,24 +14,32 @@ debug {
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    converter.cpp \
-    dbinterface.cpp \
+    gui_src\converter.cpp \
+    gui_src\dbinterface.cpp \
+    dbmanager.cpp \
     main.cpp \
-    mainwindow.cpp \
-    noteinterface.cpp \
-    progress.cpp \
-    protocolmanager.cpp
+    gui_src\mainwindow.cpp \
+    gui_src\noteinterface.cpp \
+    gui_src\progress.cpp \
+    gui_src\newland.cpp \
+    protocolmanager.cpp \
+    gui_src\dialog.cpp
 
 HEADERS += \
-    converter.h \
-    dbinterface.h \
+    gui_src\converter.h \
+    gui_src\dbinterface.h \
+    dbmanager.h \
     general.h \
-    mainwindow.h \
-    noteinterface.h \
-    progress.h \
-    protocolmanager.h
+    gui_src\mainwindow.h \
+    gui_src\noteinterface.h \
+    gui_src\progress.h \
+    gui_src\newland.h \
+    protocolmanager.h \
+    gui_src\dialog.h
 
 FORMS += \
+    ui/dialog.ui \
+    ui/newland.ui \
     ui/mainwindow.ui \
     ui/progress.ui \
     ui/noteinterface.ui \

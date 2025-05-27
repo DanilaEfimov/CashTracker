@@ -8,6 +8,7 @@
 #include <QVector>
 #include <QTextStream>
 #include <QDate>
+#include <QWidget>
 
 struct protocol{
     QString util_name;
@@ -32,8 +33,6 @@ struct data {
 
 class protocolManager
 {
-    Q_OBJECT
-
 public:
     protocolManager() = default;
 

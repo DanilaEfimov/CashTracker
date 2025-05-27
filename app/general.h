@@ -3,17 +3,26 @@
 
 #include<QMap>
 
-// styles
+// path
 #define QSS_L_MAIN_PATH         ":/qss/l_main.qss"
 #define QSS_D_MAIN_PATH         ":/qss/d_main.qss"
+#define QSS_DIALOG              ":/qss/dialog.qss"
 
 #define ICON_CASHTRACKER        ":/icons/cashtracker.ico"
+
+// Data Base
+#define DB_PATH                 "/db/userdata.db"
+
+#define ENTITIES                "entities"
+
+#define LOG_FRONT               "../logs/frontend.log"
 
 // indexes
 #define CNT_CONVERTER       0
 #define CNT_PROGRESS        1
 #define CNT_NOTEINTERFACE   2
 #define CNT_DBINTERFACE     3
+#define CNT_NEWLAND
 
 // api
 #define BUFFER_PATH         "../buffer/buffer.txt"
@@ -26,6 +35,12 @@
 #define REAL_T      "real"
 #define INT_T       "int"
 #define DATE_T      "date"
+
+#define NULL_ARG    "@"
+
+// utils
+
+// requests
 
 enum {
     USD = 1, EUR, GBP, JPY, CNY, CHF,
@@ -54,7 +69,8 @@ enum exitcodes{
     ready_to_read,
     parse_err,
     run_err,
-    undefined = -1
+    undefined,
+    fatal_err = -1
 };
 
 static const QMap<QString, int> codes = {
@@ -65,5 +81,26 @@ static const QMap<QString, int> codes = {
     { "openfile_err",  openfile_err },
     { "ready_to_read", ready_to_read}
 };
+
+static const QMap<QString, bool> isloss = {
+    { "Rent",            true },
+    { "Taxes",           true },
+    { "Electricity",     true },
+    { "Water",           true },
+    { "Gas",             true },
+    { "Internet",        true },
+    { "Food",            true },
+    { "Transportation",  true },
+    { "Health",          true },
+    { "Education",       true },
+    { "Entertainment",   true },
+    { "Other",           false },
+    { "Salary",          false },
+    { "Gift",            false },
+    { "Bonus",           false },
+    { "Cashback",        false },
+    { "Freelance",       false },
+    };
+
 
 #endif // GENERAL_H

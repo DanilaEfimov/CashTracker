@@ -29,9 +29,6 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="categoryval"/>
-     </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="amountval"/>
      </item>
@@ -223,6 +220,95 @@
        <property name="text">
         <string>currency :</string>
        </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>Rent</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Taxes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Electricity</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Water</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gas</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Internet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Food</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Transportation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Health </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Education</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Entertainment</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Other </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Salary</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gift </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Bonus</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cashback</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Freelance </string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>

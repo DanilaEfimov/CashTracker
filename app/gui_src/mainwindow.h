@@ -1,14 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "converter.h"
-#include "progress.h"
-#include "noteinterface.h"
-#include "dbinterface.h"
+#include "gui_src/converter.h"
+#include "gui_src/progress.h"
+#include "gui_src/noteinterface.h"
+#include "gui_src/dbinterface.h"
+#include "gui_src/newland.h"
 
 #include <QMainWindow>
 #include <QStackedWidget>
 #include <QActionGroup>
+#include <QProcess>
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +33,9 @@ private:
     progress* progress_w;
     noteinterface* noteint_w;
     dbinterface* dbint_w;
+    newland* news_w;
+
+    QProcess* utilit;
 
     void init();
     void setupStyle();

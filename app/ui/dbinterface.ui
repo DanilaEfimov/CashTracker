@@ -6,32 +6,61 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>466</width>
-    <height>347</height>
+    <width>358</width>
+    <height>271</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+    <bold>true</bold>
+    <underline>false</underline>
+    <strikeout>false</strikeout>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_5">
-   <item row="0" column="1">
-    <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="lessarea">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="l_less">
+       <property name="text">
+        <string>less than :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="min"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="checkless">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="2" colspan="2">
+    <layout class="QGridLayout" name="greaterarea">
+     <item row="0" column="0">
+      <widget class="QLabel" name="l_greater">
        <property name="text">
         <string>greater than :</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QCheckBox" name="checkBox_2">
+      <widget class="QCheckBox" name="checkgreater">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QSpinBox" name="spinBox_2">
+      <widget class="QSpinBox" name="max">
        <property name="minimumSize">
         <size>
          <width>41</width>
@@ -42,52 +71,52 @@
      </item>
     </layout>
    </item>
-   <item row="2" column="0">
-    <layout class="QGridLayout" name="gridLayout_7">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_9">
-       <property name="text">
-        <string>to :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="checkBox_4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QDateEdit" name="dateEdit_2"/>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0" colspan="2">
+   <item row="1" column="0" colspan="4">
     <widget class="Line" name="line_2">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
-    <layout class="QGridLayout" name="gridLayout_6">
+   <item row="2" column="0">
+    <layout class="QGridLayout" name="toarea">
+     <item row="0" column="0">
+      <widget class="QLabel" name="l_to">
+       <property name="text">
+        <string>to :</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
-      <widget class="QCheckBox" name="checkBox_3">
+      <widget class="QCheckBox" name="checkto">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QDateEdit" name="deadline"/>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="2" colspan="2">
+    <layout class="QGridLayout" name="fromarea">
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="checkfrom">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="l_from">
        <property name="text">
         <string>from :</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QDateEdit" name="dateEdit">
+      <widget class="QDateEdit" name="startdate">
        <property name="minimumSize">
         <size>
          <width>63</width>
@@ -98,103 +127,31 @@
      </item>
     </layout>
    </item>
-   <item row="5" column="1">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>select</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="2">
+   <item row="3" column="0" colspan="4">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="4" column="1">
-    <layout class="QGridLayout" name="gridLayout_4">
-     <item row="2" column="1">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>total :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="lineEdit_2"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>loss :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>profit :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit_3"/>
-     </item>
-     <item row="0" column="0" rowspan="3">
-      <widget class="Line" name="line_3">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>less than :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QSpinBox" name="spinBox"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
    <item row="4" column="0">
-    <layout class="QGridLayout" name="gridLayout_3">
-     <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox"/>
-     </item>
+    <layout class="QGridLayout" name="categoryarea">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="l_category">
        <property name="text">
         <string>category :</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="l_currs">
        <property name="text">
         <string>currency :</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="comboBox_3">
+      <widget class="QComboBox" name="currs">
        <item>
         <property name="text">
          <string>USD — United States Dollar</string>
@@ -352,7 +309,144 @@
        </item>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>Rent</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Taxes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Electricity</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Water</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gas</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Internet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Food</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Transportation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Health</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Education</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Entertainment</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Other</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Salary</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gift</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Bonus</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cashback</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Freelance</string>
+        </property>
+       </item>
+      </widget>
+     </item>
     </layout>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="Line" name="line_3">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3">
+    <layout class="QGridLayout" name="outputarea">
+     <item row="2" column="1">
+      <widget class="QLabel" name="l_total">
+       <property name="text">
+        <string>total :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="loss"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="l_loss">
+       <property name="text">
+        <string>loss :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="l_profit">
+       <property name="text">
+        <string>profit :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="profit"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLineEdit" name="total"/>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="2" colspan="2">
+    <widget class="QPushButton" name="select">
+     <property name="text">
+      <string>select</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

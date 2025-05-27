@@ -1,4 +1,4 @@
-#include "progress.h"
+#include "gui_src/progress.h"
 #include "ui_progress.h"
 
 progress::progress(QWidget *parent)

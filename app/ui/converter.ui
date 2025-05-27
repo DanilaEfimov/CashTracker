@@ -10,6 +10,12 @@
     <height>326</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -17,7 +23,7 @@
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="1" column="1">
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="fromcur">
        <item>
         <property name="text">
          <string>USD — United States Dollar</string>
@@ -176,7 +182,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="l_tempc_cut">
        <property name="text">
         <string>temp cur :</string>
        </property>
@@ -196,28 +202,28 @@
       </spacer>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="l_target_cur">
        <property name="text">
         <string>target cur :</string>
        </property>
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="convert_btn">
        <property name="text">
         <string>convert</string>
        </property>
       </widget>
      </item>
      <item row="7" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="l_result">
        <property name="text">
         <string>result :</string>
        </property>
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="amount_output"/>
      </item>
      <item row="0" column="1" colspan="2">
       <spacer name="verticalSpacer_3">
@@ -233,10 +239,10 @@
       </spacer>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="amount_input"/>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="l_amount">
        <property name="text">
         <string>amount :</string>
        </property>
@@ -256,7 +262,7 @@
       </spacer>
      </item>
      <item row="2" column="1">
-      <widget class="QComboBox" name="comboBox_3">
+      <widget class="QComboBox" name="tocur">
        <item>
         <property name="text">
          <string>USD — United States Dollar</string>

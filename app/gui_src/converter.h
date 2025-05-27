@@ -15,6 +15,9 @@ public:
     explicit converter(QWidget *parent = nullptr);
     ~converter();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::converter *ui;
 };
