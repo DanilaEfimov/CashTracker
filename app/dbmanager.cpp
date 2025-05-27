@@ -1,9 +1,12 @@
 #include "dbmanager.h"
+#include "logger.h"
+
 #ifdef QT_DEBUG
     #include <QDebug>
 #endif
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QDateTime>
 
 QSqlDatabase dbmanager::db = QSqlDatabase::addDatabase("QSQLITE");
 int dbmanager::id = -1;
@@ -14,6 +17,7 @@ void dbmanager::connect(const QString &dbpath)
     if (connected)
         return;
 
+    db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(dbpath);
     if (!db.open()) {
         #ifdef QT_DEBUG
@@ -23,7 +27,12 @@ void dbmanager::connect(const QString &dbpath)
     }
 
     connected = true;
-    id = getCurID();
+    id = getCurID();    // if something went wrong then returns -1 (fatal error)
+    if(id == fatal_err){
+        QString moment = QDateTime::currentDateTime().toString();
+        logger::log("fatal error : failed to initialize ENTITIES count :: "
+                    + moment);
+    }
 }
 
 int dbmanager::getCurID()
@@ -36,13 +45,13 @@ int dbmanager::getCurID()
     }
 
     QSqlQuery query(db);
-    query.prepare("SELECT id FROM settings WHERE setting = :setting");
-    query.bindValue(":setting", ENTITIES);
+    query.prepare("SELECT value FROM settings WHERE setting = 'entities'");
+    //query.bindValue(":setting", ENTITIES);
 
     if (!query.exec()) {
-    #ifdef QT_DEBUG
+        #ifdef QT_DEBUG
             qDebug() << "Query failed:" << query.lastError().text();
-    #endif
+        #endif
         return fatal_err;
     }
 

@@ -126,15 +126,37 @@ int protocolManager::writeArgs(const data_t &response, const QString path)
 int protocolManager::runBackend(const QString& path)
 {
     QProcess process;
-    process.start(path);
+    process.setProgram("cmd");
+    process.setArguments({ "/c", "run_backend.bat" });
+    process.setWorkingDirectory("../py_backend");
+    process.setProcessChannelMode(QProcess::MergedChannels);
+
+    process.start();
 
     if (!process.waitForStarted()) {
+        #ifdef QT_DEBUG
+            qDebug() << "Failed to start backend process";
+        #endif
         return run_err;
     }
 
-    process.waitForFinished();
-    return (process.exitCode() == 0) ? success : run_err;
+    if (!process.waitForFinished()) {
+        #ifdef QT_DEBUG
+            qDebug() << "Process did not finish in time";
+        #endif
+        return run_err;
+    }
+
+    int exit_code = process.exitCode();
+
+    #ifdef QT_DEBUG
+        qDebug() << "Backend process finished with code:" << exit_code;
+        qDebug() << "Output:" << process.readAllStandardOutput();
+    #endif
+
+    return (exit_code == 0) ? success : run_err;
 }
+
 
 int protocolManager::runUtil(const QStringList& argv, const QString& path)
 {

@@ -1,5 +1,5 @@
 text,real
 2,1
-USD
 GBP
-560
+GBP
+45678

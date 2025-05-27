@@ -13,9 +13,9 @@
 #define ICON_CASHTRACKER        ":/icons/cashtracker.ico"
 
 // Data Base
-#define DB_PATH                 "/db/userdata.db"
+#define DB_PATH                 "./db/userdata.db"
 
-#define ENTITIES                "entities"
+#define ENTITIES                "'entities'"
 
 #define LOG_FRONT               "../logs/frontend.log"
 

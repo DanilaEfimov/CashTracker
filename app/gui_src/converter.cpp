@@ -44,9 +44,11 @@ void converter::on_convert_btn_clicked()
     request.function_name   = py_funs[get_rates];
 
     protocolManager::writeArgs(args);
+    protocolManager::sendRequest(request);
     int exit_code = protocolManager::runBackend();
-    QString moment = QDateTime::currentDateTime().toString();
+
     if(exit_code){
+        QString moment = QDateTime::currentDateTime().toString();
         logger::log("Args: " + tempcur + ", " + targetcur + ", " + QString::number(amount)
             + "\nconverter request was finished with fatal exit code "
             + QString::number(exit_code) + " :: " + moment);

@@ -15,10 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->init();
+
+    dbmanager::connect();
 }
 
 MainWindow::~MainWindow()
 {
+    dbmanager::disconnect();
+
     delete ui;
 
     delete this->converter_w;

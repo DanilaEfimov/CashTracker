@@ -7,7 +7,7 @@
 
 class dbmanager {
 public:
-    static void connect(const QString& dbpath);
+    static void connect(const QString& dbpath = DB_PATH);
     static void disconnect();
     static bool insertTransaction(double amount, const QString &category,
                                   const QString &date, const QString &currency, int id);
