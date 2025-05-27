@@ -97,3 +97,8 @@ void dbmanager::incrementID()
 {
     id++;
 }
+
+int dbmanager::getID()
+{
+    return id;
+}

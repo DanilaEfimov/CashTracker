@@ -28,7 +28,6 @@ int protocolManager::sendRequest(const protocol &request, const QString path)
     ts << request.args << "\n";
 
     buffer.close();
-
     return 0;
 }
 
@@ -59,7 +58,7 @@ int protocolManager::readAnswer(const QMap<QString, int> & exits, const QString 
     return undefined;
 }
 
-int protocolManager::readArgs(data &response, const QString path)
+int protocolManager::readArgs(data_t &response, const QString path)
 {
     // default parameters from general.h
     // more in doc/api
@@ -77,22 +76,48 @@ int protocolManager::readArgs(data &response, const QString path)
 
     QTextStream ts(&args);
     QString line = ts.readLine();
-    QStringList sign = line.split(',');
+    QStringList sign = line.split(',', Qt::SkipEmptyParts);
+    QStringList argc = line.split(',', Qt::SkipEmptyParts);
 
     for (int i = 0; i < sign.size(); i++) {
-        line = ts.readLine();
-        if (line.isNull()) {
-            #ifdef QT_DEBUG
-                qDebug() << "uncorrect response file format "
-                    << path;
-            #endif
-            args.close();
-            return parse_err;
+        for(auto count : argc){
+            line = ts.readLine();
+            if (line.isNull()) {
+                #ifdef QT_DEBUG
+                    qDebug() << "uncorrect response file format "
+                        << path;
+                #endif
+                args.close();
+                return parse_err;
+            }
+            // trimmed for rmoving pre/post-fix spaces/tabs/new-line-char
+            response.readArg(line.trimmed(), sign[i].trimmed());
         }
-
-        // trimmed for rmoving pre/post-fix spaces/tabs/new-line-char
-        response.readArg(line.trimmed(), sign[i].trimmed());
     }
+
+    args.close();
+    return success;
+}
+
+int protocolManager::writeArgs(const data_t &response, const QString path)
+{
+    QFile args(path);
+    args.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    args.flush();   // clear
+
+    if(!args.isOpen()){
+        #ifdef QT_DEBUG
+            qDebug() << "failed to open " << path
+                     << "\n[" << args.errorString() << "]";
+        #endif
+        return openfile_err;
+    }
+
+    QTextStream ts(&args);
+    ts << response.signature(); Qt::endl(ts);
+    ts << response.argcounts(); Qt::endl(ts);
+    ts << response.values().join('\n'); Qt::endl(ts);
 
     args.close();
     return success;
@@ -100,7 +125,15 @@ int protocolManager::readArgs(data &response, const QString path)
 
 int protocolManager::runBackend(const QString& path)
 {
+    QProcess process;
+    process.start(path);
 
+    if (!process.waitForStarted()) {
+        return run_err;
+    }
+
+    process.waitForFinished();
+    return (process.exitCode() == 0) ? success : run_err;
 }
 
 int protocolManager::runUtil(const QStringList& argv, const QString& path)
@@ -119,9 +152,9 @@ int protocolManager::runUtil(const QStringList& argv, const QString& path)
     return success;
 }
 
-// data defines vvv / protocolManager ^^^
+// data_t defines vvv / protocolManager ^^^
 
-void data::readArg(const QString &value, const QString &sign)
+void data_t::readArg(const QString &value, const QString &sign)
 {
     // types from general.h / more in doc/api
     if(sign == TEXT_T)      {this->str.append(value);}
@@ -134,4 +167,36 @@ void data::readArg(const QString &value, const QString &sign)
             << sign;
     #endif
     }
+}
+
+QString data_t::signature() const
+{
+    QStringList signs;
+    if(!this->str.empty())      {signs.append(TEXT_T);}
+    if(!this->nums.empty())     {signs.append(INT_T);}
+    if(!this->dbl.empty())      {signs.append(REAL_T);}
+    if(!this->dates.empty())    {signs.append(DATE_T);}
+    QString res = signs.join(',');
+    return res;
+}
+
+QString data_t::argcounts() const
+{
+    QStringList counts;
+    counts.append(QString::number(this->str.size()));
+    counts.append(QString::number(this->nums.size()));
+    counts.append(QString::number(this->dbl.size()));
+    counts.append(QString::number(this->dates.size()));
+    QString res = counts.join(',');
+    return res;
+}
+
+QStringList data_t::values() const
+{
+    QStringList values;
+    for(auto& val : this->str)      {values.append(val);}
+    for(auto& val : this->nums)     {values.append(QString::number(val));}
+    for(auto& val : this->dbl)      {values.append(QString::number(val));}
+    for(auto& val : this->dates)    {values.append(val.toString());}
+    return values;
 }

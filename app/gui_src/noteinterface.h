@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::noteinterface *ui;
+
+private slots:
 };
 
 #endif // NOTEINTERFACE_H

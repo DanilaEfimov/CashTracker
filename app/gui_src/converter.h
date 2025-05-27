@@ -16,7 +16,7 @@ public:
     ~converter();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_convert_btn_clicked();
 
 private:
     Ui::converter *ui;

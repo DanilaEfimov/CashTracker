@@ -16,9 +16,9 @@ struct protocol{
     QString args;
 };
 
-struct data {
+struct data_t {
 
-    // example of data struct
+    // example of data_t struct
     // more in doc/api
 
     QVector<double> dbl;
@@ -26,13 +26,18 @@ struct data {
     QVector<QString> str;
     QVector<QDate> dates;
 
-    data() : dbl(), nums(), str(), dates() {};
+    data_t() : dbl(), nums(), str(), dates() {};
 
     void readArg(const QString& value, const QString& sign);
+    QString signature() const;
+    QString argcounts() const;
+    QStringList values() const;
 };
 
-class protocolManager
+class protocolManager : QObject
 {
+    Q_OBJECT;
+
 public:
     protocolManager() = default;
 
@@ -40,9 +45,10 @@ public:
     static int readAnswer(const QMap<QString, int> & exits = codes,
                           const QString path = RESPONSE_PATH);
 
-    static int readArgs(data& response, const QString path = RESPONSE_PATH);
+    static int readArgs(data_t& response, const QString path = RESPONSE_PATH);
+    static int writeArgs(const data_t& response, const QString path = RESPONSE_PATH);
 
-    static int runBackend(const QString& path);
+    static int runBackend(const QString& path = PY_BACK_PATH);
     static int runUtil(const QStringList& argv, const QString& path);
 };
 

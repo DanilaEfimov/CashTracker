@@ -2,6 +2,7 @@
 #define PROGRESS_H
 
 #include <QWidget>
+#include <QGraphicsView>
 
 namespace Ui {
 class progress;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::progress *ui;
+    QGraphicsView* graphic;
 };
 
 #endif // PROGRESS_H

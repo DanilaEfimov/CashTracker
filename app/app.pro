@@ -17,6 +17,7 @@ SOURCES += \
     gui_src\converter.cpp \
     gui_src\dbinterface.cpp \
     dbmanager.cpp \
+    logger.cpp \
     main.cpp \
     gui_src\mainwindow.cpp \
     gui_src\noteinterface.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     gui_src\noteinterface.h \
     gui_src\progress.h \
     gui_src\newland.h \
+    logger.h \
     protocolmanager.h \
     gui_src\dialog.h
 

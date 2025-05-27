@@ -1,7 +1,9 @@
+#pragma once
 #ifndef GENERAL_H
 #define GENERAL_H
 
-#include<QMap>
+#include <QMap>
+#include <QFile>
 
 // path
 #define QSS_L_MAIN_PATH         ":/qss/l_main.qss"
@@ -22,7 +24,7 @@
 #define CNT_PROGRESS        1
 #define CNT_NOTEINTERFACE   2
 #define CNT_DBINTERFACE     3
-#define CNT_NEWLAND
+#define CNT_NEWLAND         4
 
 // api
 #define BUFFER_PATH         "../buffer/buffer.txt"
@@ -38,10 +40,29 @@
 
 #define NULL_ARG    "@"
 
+enum {
+    cache_py, logger_py, parser_py
+};
+
+enum {
+    get_rates = 0x00,
+    export_json = 0x10, export_csv,
+};
+
 // utils
+static const QMap<int, QString> py_utils = {
+    {cache_py, "cache_py"},
+    {logger_py, "logger_py"},
+    {parser_py, "parser_py"},
+};
 
 // requests
+static const QMap<int, QString> py_funs = {
+    {get_rates, "get_rates"},
+    {export_json, "export_json"}, {export_csv, "export_csv"},
+};
 
+// currencies
 enum {
     USD = 1, EUR, GBP, JPY, CNY, CHF,
     AUD, CAD, NZD, SEK, NOK, DKK,
@@ -94,13 +115,12 @@ static const QMap<QString, bool> isloss = {
     { "Health",          true },
     { "Education",       true },
     { "Entertainment",   true },
-    { "Other",           false },
+    { "Other",           false },   // means other losses
     { "Salary",          false },
     { "Gift",            false },
     { "Bonus",           false },
     { "Cashback",        false },
     { "Freelance",       false },
-    };
-
+};
 
 #endif // GENERAL_H

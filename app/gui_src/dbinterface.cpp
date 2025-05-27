@@ -70,7 +70,7 @@ void dbinterface::makeTransAction()
     QString category = ui->categories->currentText();
     QDate today = QDate::currentDate();
     QString currency = ui->currs->currentText().mid(0,2);
-    int id =
+    int id = dbmanager::getID();
 }
 
 void dbinterface::on_select_clicked()
