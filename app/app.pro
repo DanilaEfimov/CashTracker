@@ -52,6 +52,11 @@ FORMS += \
 PRECOMPILED_HEADER += \
     general.h
 
+# generate .exe near .pro
+DESTDIR += ./
+UI_DIR = ui/
+TARGET = cashtracker
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

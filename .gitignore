@@ -1,10 +1,15 @@
 # ==== Qt builds / resources ====
 app/build/
 app/qss
+app/icons
 release/
 debug/
+Makefile
+Makefile.debug
+Makefile.release
 *.pro.user
 *.qmake.stash
+*.qrc
 
 # ==== Python ====
 __pycache__/

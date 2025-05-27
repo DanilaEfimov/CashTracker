@@ -102,7 +102,7 @@ int protocolManager::readArgs(data_t &response, const QString path)
 int protocolManager::writeArgs(const data_t &response, const QString path)
 {
     QFile args(path);
-    args.open(QIODevice::ReadOnly | QIODevice::Text);
+    args.open(QIODevice::WriteOnly | QIODevice::Text);
 
     args.flush();   // clear
 
@@ -183,10 +183,10 @@ QString data_t::signature() const
 QString data_t::argcounts() const
 {
     QStringList counts;
-    counts.append(QString::number(this->str.size()));
-    counts.append(QString::number(this->nums.size()));
-    counts.append(QString::number(this->dbl.size()));
-    counts.append(QString::number(this->dates.size()));
+    if(this->str.size())    {counts.append(QString::number(this->str.size()));}
+    if(this->nums.size())   {counts.append(QString::number(this->nums.size()));}
+    if(this->dbl.size())    {counts.append(QString::number(this->dbl.size()));}
+    if(this->dates.size())  {counts.append(QString::number(this->dates.size()));}
     QString res = counts.join(',');
     return res;
 }

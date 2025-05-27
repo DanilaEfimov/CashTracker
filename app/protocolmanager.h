@@ -46,7 +46,7 @@ public:
                           const QString path = RESPONSE_PATH);
 
     static int readArgs(data_t& response, const QString path = RESPONSE_PATH);
-    static int writeArgs(const data_t& response, const QString path = RESPONSE_PATH);
+    static int writeArgs(const data_t& response, const QString path = ARGUMENT_PATH);
 
     static int runBackend(const QString& path = PY_BACK_PATH);
     static int runUtil(const QStringList& argv, const QString& path);

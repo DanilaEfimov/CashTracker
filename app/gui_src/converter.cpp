@@ -47,7 +47,9 @@ void converter::on_convert_btn_clicked()
     int exit_code = protocolManager::runBackend();
     QString moment = QDateTime::currentDateTime().toString();
     if(exit_code){
-        logger::log("converter request was finished with fatal exit code :: " + moment);
+        logger::log("Args: " + tempcur + ", " + targetcur + ", " + QString::number(amount)
+            + "\nconverter request was finished with fatal exit code "
+            + QString::number(exit_code) + " :: " + moment);
     }
 }
 
