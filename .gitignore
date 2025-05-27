@@ -16,6 +16,7 @@ Makefile.release
 app/cashtracker.exe
 
 # ==== Python ====
+*.pyc
 __pycache__/
 *.py[cod]
 py_backend/venv/
@@ -24,7 +25,8 @@ py_backend/.idea/
 # ==== Logs ====
 logs/
 *.log
+*.json
 
 # ==== other ====
 .idea/
-*.env
+apikey.env
