@@ -4,13 +4,16 @@ app/qss
 app/icons
 release/
 debug/
-app/.qtc_clangd
+app/.qtc_clangd/
 Makefile
 Makefile.debug
 Makefile.release
 *.pro.user
 *.qmake.stash
 *.qrc
+
+# ==== bin ====
+app/cashtracker.exe
 
 # ==== Python ====
 __pycache__/
