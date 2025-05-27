@@ -4,6 +4,7 @@ app/qss
 app/icons
 release/
 debug/
+.qtc_clangd/
 Makefile
 Makefile.debug
 Makefile.release
