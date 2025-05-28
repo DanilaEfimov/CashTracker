@@ -1,10 +1,12 @@
 from utils.parser import *
 from utils.network import *
 
+# by ipc request contains: util name + function name
+
 req = read_request();
 args = read_args();
-req = [x.strip() for x in req]
-args = [x.strip() for x in args]
+req =   [x.strip() for x in req]
+args =  [x.strip() for x in args]
 print("request:\n",req, args, sep='\narguments:\n');
 
 response = ("undefined", -1);

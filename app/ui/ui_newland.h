@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -26,29 +27,27 @@ class Ui_newland
 {
 public:
     QGridLayout *gridLayout;
-    QTextEdit *textEdit;
+    QHBoxLayout *horizontalLayout;
     QTableWidget *tableWidget;
-    QSpacerItem *verticalSpacer;
+    QTextEdit *textEdit;
     QComboBox *formats;
     QPushButton *export_btn;
     QPushButton *update_btn;
+    QSpacerItem *verticalSpacer;
 
     void setupUi(QWidget *newland)
     {
         if (newland->objectName().isEmpty())
             newland->setObjectName("newland");
-        newland->resize(372, 274);
+        newland->resize(426, 288);
         QFont font;
         font.setPointSize(10);
         font.setBold(true);
         newland->setFont(font);
         gridLayout = new QGridLayout(newland);
         gridLayout->setObjectName("gridLayout");
-        textEdit = new QTextEdit(newland);
-        textEdit->setObjectName("textEdit");
-
-        gridLayout->addWidget(textEdit, 0, 0, 1, 1);
-
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
         tableWidget = new QTableWidget(newland);
         if (tableWidget->columnCount() < 2)
             tableWidget->setColumnCount(2);
@@ -76,14 +75,19 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
         tableWidget->setSizePolicy(sizePolicy);
-        tableWidget->setMinimumSize(QSize(217, 191));
+        tableWidget->setMinimumSize(QSize(250, 220));
         tableWidget->setFont(font);
 
-        gridLayout->addWidget(tableWidget, 0, 1, 1, 3);
+        horizontalLayout->addWidget(tableWidget);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        textEdit = new QTextEdit(newland);
+        textEdit->setObjectName("textEdit");
+        textEdit->setMaximumSize(QSize(200, 16777215));
 
-        gridLayout->addItem(verticalSpacer, 1, 1, 1, 1);
+        horizontalLayout->addWidget(textEdit);
+
+
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 3);
 
         formats = new QComboBox(newland);
         formats->addItem(QString());
@@ -95,12 +99,16 @@ public:
         export_btn = new QPushButton(newland);
         export_btn->setObjectName("export_btn");
 
-        gridLayout->addWidget(export_btn, 2, 2, 1, 1);
+        gridLayout->addWidget(export_btn, 2, 1, 1, 1);
 
         update_btn = new QPushButton(newland);
         update_btn->setObjectName("update_btn");
 
-        gridLayout->addWidget(update_btn, 2, 3, 1, 1);
+        gridLayout->addWidget(update_btn, 2, 2, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 1, 0, 1, 3);
 
 
         retranslateUi(newland);

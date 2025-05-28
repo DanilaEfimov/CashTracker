@@ -161,7 +161,7 @@ int protocolManager::runBackend(const QString& path)
 {
     QProcess process;
     process.setProgram("cmd");
-    process.setArguments({ "/c", "run_backend.bat" });
+    process.setArguments({ "/c", path });
     process.setWorkingDirectory("../py_backend");
     process.setProcessChannelMode(QProcess::MergedChannels);
 

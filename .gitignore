@@ -5,12 +5,23 @@ app/icons
 release/
 debug/
 app/.qtc_clangd/
+app/generic/
+app/iconengines/
+app/imageformats/
+app/networkinformation/
+app/platforms/
+app/sqldrivers/
+app/styles/
+app/tls/
+app/translations/
 Makefile
 Makefile.debug
 Makefile.release
 *.pro.user
 *.qmake.stash
 *.qrc
+*.rc
+*.dll
 
 # ==== bin ====
 app/*.exe

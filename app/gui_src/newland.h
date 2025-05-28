@@ -15,8 +15,15 @@ public:
     explicit newland(QWidget *parent = nullptr);
     ~newland();
 
+private slots:
+    void on_update_btn_clicked();
+
 private:
     Ui::newland *ui;
+
+    void init();
+
+    void initTable(const QStringList& fields);
 };
 
 #endif // NEWLAND_H

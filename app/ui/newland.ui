@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>274</height>
+    <width>426</width>
+    <height>288</height>
    </rect>
   </property>
   <property name="font">
@@ -20,83 +20,81 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QTextEdit" name="textEdit"/>
-   </item>
-   <item row="0" column="1" colspan="3">
-    <widget class="QTableWidget" name="tableWidget">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>217</width>
-       <height>191</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <row>
-      <property name="text">
-       <string>Bitcoin</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Ethereum</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Tether</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>New Row</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Binance Coin</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Ripple</string>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>rate (USD)</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>rate (EUR)</string>
-      </property>
-     </column>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Orientation::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+   <item row="0" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>220</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <row>
+        <property name="text">
+         <string>Bitcoin</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Ethereum</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Tether</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>New Row</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Binance Coin</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Ripple</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>rate (USD)</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>rate (EUR)</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item row="2" column="0">
     <widget class="QComboBox" name="formats">
@@ -112,19 +110,32 @@
      </item>
     </widget>
    </item>
-   <item row="2" column="2">
+   <item row="2" column="1">
     <widget class="QPushButton" name="export_btn">
      <property name="text">
       <string>export</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="3">
+   <item row="2" column="2">
     <widget class="QPushButton" name="update_btn">
      <property name="text">
       <string>update</string>
      </property>
     </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

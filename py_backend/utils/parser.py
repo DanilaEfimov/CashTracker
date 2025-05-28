@@ -25,8 +25,11 @@ def read_args():
 
 def send_answer(response):
     try:
+        if(response[0] != "success"):
+            log("something went wrong. answer : " + str(response));
         with open("../buffer/response.txt", "w", encoding="utf-8") as f:
-            for item in response:
+            f.write(str(response[0]) + "\n");   # exit status (success)
+            for item in response[1]:
                 f.write(f"{item}\n");
             return exitcodes[0];
     except OSError as e:

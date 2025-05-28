@@ -20,17 +20,23 @@
 #define LOG_FRONT               "../logs/frontend.log"
 
 // indexes
-#define CNT_CONVERTER       0
-#define CNT_PROGRESS        1
-#define CNT_NOTEINTERFACE   2
-#define CNT_DBINTERFACE     3
-#define CNT_NEWLAND         4
+#define CNT_CONVERTER           0
+#define CNT_PROGRESS            1
+#define CNT_NOTEINTERFACE       2
+#define CNT_DBINTERFACE         3
+#define CNT_NEWLAND             4
 
 // api
-#define BUFFER_PATH         "../buffer/buffer.txt"
-#define RESPONSE_PATH       "../buffer/response.txt"
-#define ARGUMENT_PATH       "../buffer/args.txt"
-#define PY_BACK_PATH        "../py_backend/processor.py"
+#define BUFFER_PATH             "../buffer/buffer.txt"
+#define RESPONSE_PATH           "../buffer/response.txt"
+#define ARGUMENT_PATH           "../buffer/args.txt"
+#define PY_BACK_PATH            "../py_backend/processor.py"
+#ifdef _WIN32
+#define OS_CALL_BACKEND_PATH    "run_backend.bat"
+#else
+#define OS_CALL_BACKEND_PATH    "run_backend.sh"
+#endif
+
 
 // api response types
 #define TEXT_T      "text"
@@ -47,6 +53,7 @@ enum {
 enum {
     convert = 0x00,                 // converter
     export_json = 0x10, export_csv, // progress / dbinterface
+    update_crypto_rates             // newland
 };
 
 // utils
@@ -54,13 +61,14 @@ static const QMap<int, QString> py_utils = {
     {network_py, "network_py"},
     {logger_py, "logger_py"},
     {parser_py, "parser_py"},
-    {cache_py, "cache_py"},
+    {cache_py, "cache_py"}
 };
 
 // requests
 static const QMap<int, QString> py_funs = {
     {convert, "convert"},
     {export_json, "export_json"}, {export_csv, "export_csv"},
+    {update_crypto_rates, "update_crypto_rates"}
 };
 
 // currencies
