@@ -13,7 +13,6 @@
 struct protocol{
     QString util_name;
     QString function_name;
-    QString args;
 };
 
 struct data_t {
@@ -44,6 +43,7 @@ public:
     static int sendRequest(const protocol& request, const QString path = BUFFER_PATH);
     static int readAnswer(const QMap<QString, int> & exits = codes,
                           const QString path = RESPONSE_PATH);
+    static QString readLine(size_t col = 0, const QString path = RESPONSE_PATH);
 
     static int readArgs(data_t& response, const QString path = RESPONSE_PATH);
     static int writeArgs(const data_t& response, const QString path = ARGUMENT_PATH);

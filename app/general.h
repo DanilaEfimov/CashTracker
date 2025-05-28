@@ -41,24 +41,25 @@
 #define NULL_ARG    "@"
 
 enum {
-    cache_py, logger_py, parser_py
+    network_py, logger_py, parser_py, cache_py
 };
 
 enum {
-    get_rates = 0x00,
-    export_json = 0x10, export_csv,
+    convert = 0x00,                 // converter
+    export_json = 0x10, export_csv, // progress / dbinterface
 };
 
 // utils
 static const QMap<int, QString> py_utils = {
-    {cache_py, "cache_py"},
+    {network_py, "network_py"},
     {logger_py, "logger_py"},
     {parser_py, "parser_py"},
+    {cache_py, "cache_py"},
 };
 
 // requests
 static const QMap<int, QString> py_funs = {
-    {get_rates, "get_rates"},
+    {convert, "convert"},
     {export_json, "export_json"}, {export_csv, "export_csv"},
 };
 
@@ -100,7 +101,11 @@ static const QMap<QString, int> codes = {
     { "protocol_err",  protocol_err },
     { "response_err",  response_err },
     { "openfile_err",  openfile_err },
-    { "ready_to_read", ready_to_read}
+    { "ready_to_read", ready_to_read },
+    { "parse_err",     parse_err },
+    { "run_err",       run_err },
+    { "undefined",     undefined },
+    { "fatal_err",     fatal_err }
 };
 
 static const QMap<QString, bool> isloss = {

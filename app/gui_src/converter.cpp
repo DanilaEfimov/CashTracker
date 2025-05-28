@@ -13,6 +13,8 @@ converter::converter(QWidget *parent)
     , ui(new Ui::converter)
 {
     ui->setupUi(this);
+
+    ui->amount_output->setReadOnly(true);
 }
 
 converter::~converter()
@@ -40,12 +42,24 @@ void converter::on_convert_btn_clicked()
     args.dbl.append(amount);    // how many money
 
     protocol request;
-    request.util_name       = py_utils[cache_py];
-    request.function_name   = py_funs[get_rates];
+    request.util_name       = py_utils[network_py];
+    request.function_name   = py_funs[convert];
 
     protocolManager::writeArgs(args);
     protocolManager::sendRequest(request);
     int exit_code = protocolManager::runBackend();
+
+    int answer = protocolManager::readAnswer();
+    if(answer){
+        #ifdef QT_DEBUG
+            qDebug() << "non success answer from backend : " << answer;
+        #endif
+        logger::log("non success answer from backend : " + QString::number(answer));
+        return;
+    }
+    double value = protocolManager::readLine(1).toDouble();
+
+    ui->amount_output->setText(QString::number(value));
 
     if(exit_code){
         QString moment = QDateTime::currentDateTime().toString();

@@ -13,7 +13,7 @@ Makefile.release
 *.qrc
 
 # ==== bin ====
-app/cashtracker.exe
+app/*.exe
 
 # ==== Python ====
 *.pyc

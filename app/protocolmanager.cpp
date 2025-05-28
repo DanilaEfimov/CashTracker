@@ -1,5 +1,6 @@
 #include "protocolmanager.h"
 #include "general.h"
+#include "logger.h"
 
 #include <QFile>
 #include <QTextStream>
@@ -25,8 +26,6 @@ int protocolManager::sendRequest(const protocol &request, const QString path)
     QTextStream ts(&buffer);
     ts << request.util_name << "\n";
     ts << request.function_name << "\n";
-    ts << request.args << "\n";
-
     buffer.close();
     return 0;
 }
@@ -37,7 +36,7 @@ int protocolManager::readAnswer(const QMap<QString, int> & exits, const QString 
     // more in docs/api
 
     QFile answer(path);
-    answer.open(QIODevice::ReadOnly);
+    answer.open(QIODevice::ReadOnly | QIODevice::Text);
 
     if(!answer.isOpen()){
         #ifdef QT_DEBUG
@@ -56,6 +55,41 @@ int protocolManager::readAnswer(const QMap<QString, int> & exits, const QString 
     }
 
     return undefined;
+}
+
+QString protocolManager::readLine(size_t col, const QString path)
+{
+    // default parameters from general.h
+    // more in docs/api
+
+    QFile file(path);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    if(!file.isOpen()){
+        #ifdef QT_DEBUG
+            qDebug() << "failed to open " << path
+                    << "\n[" << file.errorString() << "]";
+        #endif
+        return "";
+    }
+
+    QTextStream in(&file);
+    QString line;
+    size_t currentLine = 0;
+
+    while (!in.atEnd()) {
+        line = in.readLine();
+        if (currentLine == col)
+            return line;
+        ++currentLine;
+    }
+
+    #ifdef QT_DEBUG
+        qDebug() << "cannot read line " << col << " from " << path;
+    #endif
+    logger::log("cannot read line " + QString::number(col) + " from " + path);
+
+    return "";
 }
 
 int protocolManager::readArgs(data_t &response, const QString path)

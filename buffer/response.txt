@@ -1,5 +1,2 @@
-text,real
-2,0,1,0
-USD
-GBP
-21
+success
+1.0
