@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>qss/l_main.qss</file>
-        <file>qss/d_main.qss</file>
-        <file>icons/cashtracker.ico</file>
-        <file>qss/dialog.qss</file>
-    </qresource>
-</RCC>
