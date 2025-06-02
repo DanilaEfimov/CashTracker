@@ -1,7 +1,7 @@
 #ifndef PROTOCOLMANAGER_H
 #define PROTOCOLMANAGER_H
 
-#include "general.h"
+#include "general.h"    // here included /gui_src/dialog.h
 
 #include <QString>
 #include <QMap>
@@ -28,9 +28,13 @@ struct data_t {
     data_t() : dbl(), nums(), str(), dates() {};
 
     void readArg(const QString& value, const QString& sign);
+    void readDialogData(const dialog_data& data);
     QString signature() const;
     QString argcounts() const;
     QStringList values() const;
+
+    bool empty() const;
+    void clear();
 };
 
 class protocolManager : QObject
@@ -44,6 +48,7 @@ public:
     static int readAnswer(const QMap<QString, int> & exits = codes,
                           const QString path = RESPONSE_PATH);
     static QString readLine(size_t col = 0, const QString path = RESPONSE_PATH);
+    static void readAll(QString& str, const QString path = RESPONSE_PATH);
 
     static int readArgs(data_t& response, const QString path = RESPONSE_PATH);
     static int writeArgs(const data_t& response, const QString path = ARGUMENT_PATH);

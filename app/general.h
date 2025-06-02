@@ -5,12 +5,15 @@
 #include <QMap>
 #include <QFile>
 
+#include "gui_src/dialog.h"
+
 // path
 #define QSS_L_MAIN_PATH         ":/qss/l_main.qss"
 #define QSS_D_MAIN_PATH         ":/qss/d_main.qss"
 #define QSS_DIALOG              ":/qss/dialog.qss"
 
 #define ICON_CASHTRACKER        ":/icons/cashtracker.ico"
+#define ICON_WARNINGS           ":/icons/warning.ico"
 
 // Data Base
 #define DB_PATH                 "./db/userdata.db"
@@ -31,10 +34,11 @@
 #define RESPONSE_PATH           "../buffer/response.txt"
 #define ARGUMENT_PATH           "../buffer/args.txt"
 #define PY_BACK_PATH            "../py_backend/processor.py"
+
 #ifdef _WIN32
-#define OS_CALL_BACKEND_PATH    "run_backend.bat"
+    #define OS_CALL_BACKEND_PATH    "run_backend.bat"
 #else
-#define OS_CALL_BACKEND_PATH    "run_backend.sh"
+    #define OS_CALL_BACKEND_PATH    "run_backend.sh"
 #endif
 
 
@@ -46,14 +50,22 @@
 
 #define NULL_ARG    "@"
 
+#define JSON        "json"
+#define CSV         "csv"
+
+#define NAME_CUR    "crypto_currency"
+#define NAME_RATE   "rate"
+#define NAME_TARGET "target"
+
 enum {
     network_py, logger_py, parser_py, cache_py
 };
 
 enum {
-    convert = 0x00,                 // converter
-    export_json = 0x10, export_csv, // progress / dbinterface
-    update_crypto_rates             // newland
+    convert = 0x00,                         // converter
+    export_json = 0x10, export_csv,         // progress / dbinterface
+    update_crypto_rates, update_crypto_news,// newland
+    save_as_json, save_as_csv
 };
 
 // utils
@@ -67,8 +79,12 @@ static const QMap<int, QString> py_utils = {
 // requests
 static const QMap<int, QString> py_funs = {
     {convert, "convert"},
-    {export_json, "export_json"}, {export_csv, "export_csv"},
-    {update_crypto_rates, "update_crypto_rates"}
+    {export_json, "export_json"},
+    {export_csv, "export_csv"},
+    {update_crypto_rates, "update_crypto_rates"},
+    {update_crypto_news, "update_crypto_news"},
+    {save_as_json, "save_as_json"},
+    {save_as_csv, "save_as_csv"}
 };
 
 // currencies
@@ -90,6 +106,17 @@ static const QMap<QString, int> curs = {
     { "MXN", MXN }, { "SGD", SGD }, { "HKD", HKD }, { "KRW", KRW },
     { "THB", THB }, { "MYR", MYR }, { "IDR", IDR }, { "VND", VND },
     { "AED", AED }, { "SAR", SAR }, { "EGP", EGP }
+};
+
+static const QMap<int, QString> reverseCurs = {
+    { USD, "USD" }, { EUR, "EUR" }, { GBP, "GBP" }, { JPY, "JPY" },
+    { CNY, "CNY" }, { CHF, "CHF" }, { AUD, "AUD" }, { CAD, "CAD" },
+    { NZD, "NZD" }, { SEK, "SEK" }, { NOK, "NOK" }, { DKK, "DKK" },
+    { RUB, "RUB" }, { PLN, "PLN" }, { CZK, "CZK" }, { HUF, "HUF" },
+    { TRY, "TRY" }, { INR, "INR" }, { BRL, "BRL" }, { ZAR, "ZAR" },
+    { MXN, "MXN" }, { SGD, "SGD" }, { HKD, "HKD" }, { KRW, "KRW" },
+    { THB, "THB" }, { MYR, "MYR" }, { IDR, "IDR" }, { VND, "VND" },
+    { AED, "AED" }, { SAR, "SAR" }, { EGP, "EGP" }
 };
 
 // protocol manager
@@ -114,6 +141,19 @@ static const QMap<QString, int> codes = {
     { "run_err",       run_err },
     { "undefined",     undefined },
     { "fatal_err",     fatal_err }
+};
+
+static const QMap<int, QString> reverseCodes = {
+    { success,       "success" },
+    { network_err,   "network_err" },
+    { protocol_err,  "protocol_err" },
+    { response_err,  "response_err" },
+    { openfile_err,  "openfile_err" },
+    { ready_to_read, "ready_to_read" },
+    { parse_err,     "parse_err" },
+    { run_err,       "run_err" },
+    { undefined,     "undefined" },
+    { fatal_err,     "fatal_err" }
 };
 
 static const QMap<QString, bool> isloss = {

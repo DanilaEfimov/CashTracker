@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "protocolmanager.h"
+
 namespace Ui {
 class newland;
 }
@@ -18,12 +20,14 @@ public:
 private slots:
     void on_update_btn_clicked();
 
+    void on_export_btn_clicked();
+
 private:
     Ui::newland *ui;
 
     void init();
-
     void initTable(const QStringList& fields);
+    void readData(data_t& args) const;
 };
 
 #endif // NEWLAND_H

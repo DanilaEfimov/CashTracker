@@ -25,10 +25,10 @@ class Ui_Dialog
 {
 public:
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton_2;
-    QLabel *label;
+    QPushButton *browse_btn;
+    QLineEdit *path_input;
+    QPushButton *ok_btn;
+    QLabel *l_path;
     QFrame *line;
     QSpacerItem *horizontalSpacer;
 
@@ -36,8 +36,8 @@ public:
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName("Dialog");
-        Dialog->resize(253, 124);
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        Dialog->resize(312, 148);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(Dialog->sizePolicy().hasHeightForWidth());
@@ -47,25 +47,25 @@ public:
         Dialog->setFont(font);
         gridLayout = new QGridLayout(Dialog);
         gridLayout->setObjectName("gridLayout");
-        pushButton = new QPushButton(Dialog);
-        pushButton->setObjectName("pushButton");
+        browse_btn = new QPushButton(Dialog);
+        browse_btn->setObjectName("browse_btn");
 
-        gridLayout->addWidget(pushButton, 1, 2, 1, 1);
+        gridLayout->addWidget(browse_btn, 1, 2, 1, 1);
 
-        lineEdit = new QLineEdit(Dialog);
-        lineEdit->setObjectName("lineEdit");
+        path_input = new QLineEdit(Dialog);
+        path_input->setObjectName("path_input");
 
-        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
+        gridLayout->addWidget(path_input, 1, 1, 1, 1);
 
-        pushButton_2 = new QPushButton(Dialog);
-        pushButton_2->setObjectName("pushButton_2");
+        ok_btn = new QPushButton(Dialog);
+        ok_btn->setObjectName("ok_btn");
 
-        gridLayout->addWidget(pushButton_2, 3, 2, 1, 2);
+        gridLayout->addWidget(ok_btn, 3, 2, 1, 2);
 
-        label = new QLabel(Dialog);
-        label->setObjectName("label");
+        l_path = new QLabel(Dialog);
+        l_path->setObjectName("l_path");
 
-        gridLayout->addWidget(label, 1, 0, 1, 1);
+        gridLayout->addWidget(l_path, 1, 0, 1, 1);
 
         line = new QFrame(Dialog);
         line->setObjectName("line");
@@ -87,9 +87,9 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
-        pushButton->setText(QCoreApplication::translate("Dialog", "browse...", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Dialog", "OK", nullptr));
-        label->setText(QCoreApplication::translate("Dialog", "path :", nullptr));
+        browse_btn->setText(QCoreApplication::translate("Dialog", "browse...", nullptr));
+        ok_btn->setText(QCoreApplication::translate("Dialog", "OK", nullptr));
+        l_path->setText(QCoreApplication::translate("Dialog", "path :", nullptr));
     } // retranslateUi
 
 };

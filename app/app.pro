@@ -5,6 +5,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++17
 CONFIG += PRECOMPILED_HEADER
 
+release {
+    # removing debug sheets (?)
+    QMAKE_CXXFLAGS_RELEASE += -s
+    QMAKE_LFLAGS_RELEASE += -s
+}
+
 debug {
     DEFINES += QT_DEBUG
 }
@@ -57,7 +63,7 @@ PRECOMPILED_HEADER += \
     general.h
 
 # generate .exe near .pro
-DESTDIR += ./
+DESTDIR = ./
 UI_DIR = ui/
 TARGET = cashtracker
 

@@ -45,7 +45,7 @@ void MainWindow::setupStyle()
 {
     // main window
     QFile style(QSS_L_MAIN_PATH);
-    style.open(QFile::ReadOnly);
+    style.open(QIODevice::ReadOnly | QIODevice::Text);
     QString qss = style.readAll();
     this->setStyleSheet(qss);
     style.close();
@@ -122,7 +122,11 @@ void MainWindow::setLightTheme()
     ui->actionlight_theme->setChecked(true);
 
     QFile style(QSS_L_MAIN_PATH);
-    style.open(QFile::ReadOnly);
+    style.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!style.isOpen()){
+        return;
+    }
+
     QString qss = style.readAll();
     this->setStyleSheet(qss);
 
@@ -134,7 +138,11 @@ void MainWindow::setDarkTheme()
     ui->actiondark_theme->setChecked(true);
 
     QFile style(QSS_D_MAIN_PATH);
-    style.open(QFile::ReadOnly);
+    style.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!style.isOpen()){
+        return;
+    }
+
     QString qss = style.readAll();
     this->setStyleSheet(qss);
 

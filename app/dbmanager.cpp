@@ -8,7 +8,7 @@
 #include <QSqlError>
 #include <QDateTime>
 
-QSqlDatabase dbmanager::db = QSqlDatabase::addDatabase("QSQLITE");
+QSqlDatabase dbmanager::db = {};    // QSqlDatabase::addDatabase("QSQLITE");
 int dbmanager::id = -1;
 bool dbmanager::connected = false;
 

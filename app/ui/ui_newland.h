@@ -13,10 +13,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
@@ -27,27 +25,23 @@ class Ui_newland
 {
 public:
     QGridLayout *gridLayout;
-    QHBoxLayout *horizontalLayout;
     QTableWidget *tableWidget;
     QTextEdit *textEdit;
     QComboBox *formats;
     QPushButton *export_btn;
     QPushButton *update_btn;
-    QSpacerItem *verticalSpacer;
 
     void setupUi(QWidget *newland)
     {
         if (newland->objectName().isEmpty())
             newland->setObjectName("newland");
-        newland->resize(426, 288);
+        newland->resize(566, 325);
         QFont font;
         font.setPointSize(10);
         font.setBold(true);
         newland->setFont(font);
         gridLayout = new QGridLayout(newland);
         gridLayout->setObjectName("gridLayout");
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
         tableWidget = new QTableWidget(newland);
         if (tableWidget->columnCount() < 2)
             tableWidget->setColumnCount(2);
@@ -69,46 +63,70 @@ public:
         tableWidget->setVerticalHeaderItem(4, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(5, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget->setItem(0, 0, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidget->setItem(0, 1, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        tableWidget->setItem(1, 0, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        tableWidget->setItem(1, 1, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        tableWidget->setItem(2, 0, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        tableWidget->setItem(2, 1, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        tableWidget->setItem(3, 0, __qtablewidgetitem14);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        tableWidget->setItem(3, 1, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableWidget->setItem(4, 0, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        tableWidget->setItem(4, 1, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        tableWidget->setItem(5, 0, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        tableWidget->setItem(5, 1, __qtablewidgetitem19);
         tableWidget->setObjectName("tableWidget");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
         tableWidget->setSizePolicy(sizePolicy);
         tableWidget->setMinimumSize(QSize(250, 220));
+        tableWidget->setMaximumSize(QSize(400, 16777215));
         tableWidget->setFont(font);
 
-        horizontalLayout->addWidget(tableWidget);
+        gridLayout->addWidget(tableWidget, 0, 0, 1, 2);
 
         textEdit = new QTextEdit(newland);
         textEdit->setObjectName("textEdit");
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(textEdit->sizePolicy().hasHeightForWidth());
+        textEdit->setSizePolicy(sizePolicy1);
+        textEdit->setMinimumSize(QSize(300, 0));
         textEdit->setMaximumSize(QSize(200, 16777215));
 
-        horizontalLayout->addWidget(textEdit);
-
-
-        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 3);
+        gridLayout->addWidget(textEdit, 0, 2, 1, 1);
 
         formats = new QComboBox(newland);
         formats->addItem(QString());
         formats->addItem(QString());
         formats->setObjectName("formats");
 
-        gridLayout->addWidget(formats, 2, 0, 1, 1);
+        gridLayout->addWidget(formats, 1, 0, 1, 1);
 
         export_btn = new QPushButton(newland);
         export_btn->setObjectName("export_btn");
 
-        gridLayout->addWidget(export_btn, 2, 1, 1, 1);
+        gridLayout->addWidget(export_btn, 1, 1, 1, 1);
 
         update_btn = new QPushButton(newland);
         update_btn->setObjectName("update_btn");
 
-        gridLayout->addWidget(update_btn, 2, 2, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 1, 0, 1, 3);
+        gridLayout->addWidget(update_btn, 1, 2, 1, 1);
 
 
         retranslateUi(newland);
@@ -135,6 +153,11 @@ public:
         ___qtablewidgetitem6->setText(QCoreApplication::translate("newland", "Binance Coin", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->verticalHeaderItem(5);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("newland", "Ripple", nullptr));
+
+        const bool __sortingEnabled = tableWidget->isSortingEnabled();
+        tableWidget->setSortingEnabled(false);
+        tableWidget->setSortingEnabled(__sortingEnabled);
+
         formats->setItemText(0, QCoreApplication::translate("newland", "json", nullptr));
         formats->setItemText(1, QCoreApplication::translate("newland", "csv", nullptr));
 

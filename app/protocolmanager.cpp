@@ -92,6 +92,21 @@ QString protocolManager::readLine(size_t col, const QString path)
     return "";
 }
 
+void protocolManager::readAll(QString &str, const QString path)
+{
+    QFile file(path);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!file.isOpen()){
+        #ifdef QT_DEBUG
+            qDebug() << "cannot open file " << path;
+        #endif
+        logger::log("cannot open file (protocolManager::readAll) " + path);
+        return;
+    }
+
+    str = file.readAll();
+}
+
 int protocolManager::readArgs(data_t &response, const QString path)
 {
     // default parameters from general.h
@@ -225,6 +240,11 @@ void data_t::readArg(const QString &value, const QString &sign)
     }
 }
 
+void data_t::readDialogData(const dialog_data &data)
+{
+    this->str.append(data.path);
+}
+
 QString data_t::signature() const
 {
     QStringList signs;
@@ -255,4 +275,18 @@ QStringList data_t::values() const
     for(auto& val : this->dbl)      {values.append(QString::number(val));}
     for(auto& val : this->dates)    {values.append(val.toString());}
     return values;
+}
+
+bool data_t::empty() const
+{
+    return this->dates.empty() && this->dbl.empty() &&
+           this->nums.empty() && this->str.empty();
+}
+
+void data_t::clear()
+{
+    this->str.clear();
+    this->nums.clear();
+    this->dbl.clear();
+    this->dates.clear();
 }
