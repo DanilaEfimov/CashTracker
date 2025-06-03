@@ -48,6 +48,11 @@
      </property>
      <row>
       <property name="text">
+       <string>Binance Coin</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
        <string>Bitcoin</string>
       </property>
      </row>
@@ -58,22 +63,17 @@
      </row>
      <row>
       <property name="text">
-       <string>Tether</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
        <string>New Row</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>Binance Coin</string>
+       <string>Ripple</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>Ripple</string>
+       <string>Tether</string>
       </property>
      </row>
      <column>

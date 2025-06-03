@@ -1,5 +1,3 @@
-text,real
-2,1
-JPY
-AUD
-76537
+
+
+

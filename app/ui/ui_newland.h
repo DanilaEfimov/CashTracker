@@ -142,17 +142,17 @@ public:
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QCoreApplication::translate("newland", "rate (EUR)", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->verticalHeaderItem(0);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("newland", "Bitcoin", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("newland", "Binance Coin", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->verticalHeaderItem(1);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("newland", "Ethereum", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("newland", "Bitcoin", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->verticalHeaderItem(2);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("newland", "Tether", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("newland", "Ethereum", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->verticalHeaderItem(3);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("newland", "New Row", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget->verticalHeaderItem(4);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("newland", "Binance Coin", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("newland", "Ripple", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->verticalHeaderItem(5);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("newland", "Ripple", nullptr));
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("newland", "Tether", nullptr));
 
         const bool __sortingEnabled = tableWidget->isSortingEnabled();
         tableWidget->setSortingEnabled(false);

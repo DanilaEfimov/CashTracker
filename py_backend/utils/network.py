@@ -34,12 +34,12 @@ currencies = [
 ]
 
 crypto_ids = [
+    "binancecoin",
     "bitcoin",
     "ethereum",
-    "tether",
     "near",
-    "binancecoin",
-    "ripple"
+    "ripple",
+    "tether"
 ]
 
 symbols = ",".join(currencies)

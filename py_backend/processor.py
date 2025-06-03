@@ -2,6 +2,7 @@ from utils.parser import *
 from utils.network import *
 
 # by ipc request contains: util name + function name
+
 def main():
     req = read_request()
     args = read_args()
@@ -15,6 +16,8 @@ def main():
 
     if req[0] == "network_py":
         response = network_core(req[1], args)
+    elif req[0] == "parser_py":
+        response = parser_core(req[1], args)
     elif req[0] == "cache_py":
         response = ("", 0)
 

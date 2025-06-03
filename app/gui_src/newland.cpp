@@ -50,9 +50,7 @@ void newland::readData(data_t &args) const
     }
 
     args.nums.append(rows); // count of currencies
-    args.nums.append(4);    // vvv count of attributes json object's vvv
-    args.str.append(NAME_CUR);
-    args.str.append(NAME_RATE);
+    args.nums.append(cols);    // vvv count of attributes json object's vvv
     args.str.append(reverseCurs[USD]);
     args.str.append(reverseCurs[EUR]);
 
@@ -135,7 +133,6 @@ void newland::on_update_btn_clicked()
                     + QString::number(exit_code) + " :: " + moment);
     }
 }
-
 
 void newland::on_export_btn_clicked()
 {
