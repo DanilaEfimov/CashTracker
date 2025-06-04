@@ -74,25 +74,21 @@ def update_rates():
     else:
         return exitcodes[1]
 
-def is_valid_response(data):
-    # time at server and Your local time can be different
-    # if You don't see converted amount in entry - check file date ./cash_rates.json
-    try:
-        file_date = datetime.datetime.strptime(data.get("date", ""), "%Y-%m-%d").date()
-        today = datetime.date.today()
-        return file_date == today
-    except (ValueError, TypeError, AttributeError):
-        return False
+def is_valid_response():
+    mod_time = os.path.getmtime("./cash_rates.json")
+    mod_date = datetime.datetime.fromtimestamp(mod_time).date()
+    today = datetime.datetime.today().date()
+    return mod_date == today
 
 # -----v-v-v- CONVERTER -v-v-v-----
 def get_rates(depth: int):
     try:
-        with open("cash_rates.json", "r", encoding="utf-8") as f:
+        with open("./cash_rates.json", "r", encoding="utf-8") as f:
             data = json.load(f)
     except OSError as e:
         log(e)
         return exitcodes[1], {}
-    if is_valid_response(data):
+    if is_valid_response():
         return exitcodes[0], data.get("rates")
     elif depth == 0:
         updated = update_rates()

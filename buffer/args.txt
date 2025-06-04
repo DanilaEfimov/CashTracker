@@ -1,3 +1,5 @@
-
-
-
+text,real
+2,1
+USD
+GBP
+1
