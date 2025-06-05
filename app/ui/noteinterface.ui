@@ -33,7 +33,7 @@
       <widget class="QLineEdit" name="amountval"/>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="categories">
        <property name="text">
         <string>category :</string>
        </property>
@@ -57,7 +57,7 @@
       </widget>
      </item>
      <item row="1" column="3">
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="currencyval">
        <item>
         <property name="text">
          <string>USD — United States Dollar</string>
@@ -223,7 +223,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="categoriesval">
        <item>
         <property name="text">
          <string>Rent</string>

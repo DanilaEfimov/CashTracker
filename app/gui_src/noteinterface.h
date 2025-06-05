@@ -19,6 +19,8 @@ private:
     Ui::noteinterface *ui;
 
 private slots:
+    void on_maketransaction_clicked();
+    void on_makepurpose_clicked();
 };
 
 #endif // NOTEINTERFACE_H

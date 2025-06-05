@@ -1,5 +1,5 @@
 text,real
 2,1
+CNY
 USD
-GBP
-1
+345
