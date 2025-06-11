@@ -257,3 +257,26 @@ int dbmanager::getID()
 {
     return id;
 }
+
+void dbmanager::select(const protocol &proto, const data_t &data)
+{
+    int res = protocolManager::sendRequest(proto);
+    if(res){
+        #ifdef QT_DEBUG
+            qDebug() << "failed request sending status";
+            logger::log("failed to send request, status : " + QString::number(res)
+                        + " " + QDate::currentDate().toString());
+        #endif
+        return;
+    }
+
+    protocolManager::writeArgs(data);
+    int status = protocolManager::runBackend();
+
+    if(status){
+        #ifdef QT_DEBUG
+            qDebug() << "failed run status";
+        #endif
+        return;
+    }
+}

@@ -20,12 +20,13 @@ struct data_t {
     // example of data_t struct
     // more in doc/api
 
-    QVector<double> dbl;
-    QVector<int> nums;
     QVector<QString> str;
     QVector<QDate> dates;
+    QVector<double> dbl;
+    QVector<int> nums;
+    QVector<bool> flags;
 
-    data_t() : dbl(), nums(), str(), dates() {};
+    data_t() : str(), dates(), dbl(), nums(), flags() {};
 
     void readArg(const QString& value, const QString& sign);
     void readDialogData(const dialog_data& data);

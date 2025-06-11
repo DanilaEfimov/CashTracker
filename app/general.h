@@ -47,6 +47,7 @@
 #define REAL_T      "real"
 #define INT_T       "int"
 #define DATE_T      "date"
+#define FLAG_T      "bool"
 
 #define NULL_ARG    "@"
 

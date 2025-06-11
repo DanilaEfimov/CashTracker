@@ -2,6 +2,7 @@
 #define DBMANAGER_H
 
 #include "general.h"
+#include "protocolmanager.h"
 
 #include <QSqlDatabase>
 
@@ -15,6 +16,8 @@ public:
     static bool insertPurpose(double aomunt, const QString& date, const QString& currency, int id);
     static void incrementID();
     static int getID();
+
+    static void select(const protocol& proto, const data_t& data);
 
 private:
     static QSqlDatabase db;

@@ -10,6 +10,8 @@ noteinterface::noteinterface(QWidget *parent)
     , ui(new Ui::noteinterface)
 {
     ui->setupUi(this);
+
+    ui->dateval->setDate(QDate::currentDate());
 }
 
 noteinterface::~noteinterface()

@@ -14,6 +14,8 @@ dbinterface::dbinterface(QWidget *parent)
     , ui(new Ui::dbinterface)
 {
     ui->setupUi(this);
+
+    ui->deadline->setDate(QDate::currentDate());
 }
 
 dbinterface::~dbinterface()
@@ -80,6 +82,9 @@ void dbinterface::on_select_clicked()
     bool greater = ui->checkgreater->isTristate();
     bool from = ui->checkfrom->isTristate();
     bool to = ui->checkto->isTristate();
+
+    data_t data;
+    data.flags = {less, greater, from, to};
 
     QString args = "";
 }

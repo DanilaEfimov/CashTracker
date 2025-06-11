@@ -228,15 +228,15 @@ int protocolManager::runUtil(const QStringList& argv, const QString& path)
 void data_t::readArg(const QString &value, const QString &sign)
 {
     // types from general.h / more in doc/api
-    if(sign == TEXT_T)      {this->str.append(value);}
+         if(sign == TEXT_T) {this->str.append(value);}
     else if(sign == REAL_T) {this->dbl.append(value.toDouble());}
     else if(sign == INT_T)  {this->nums.append(value.toInt());}
     else if(sign == DATE_T) {this->dates.append(QDate::fromString(value));}
+    else if(sign == FLAG_T) {this->flags.append(static_cast<bool>(value.toInt()));}
     else {
-    #ifdef QT_DEBUG
-        qDebug() << "undefined argument type [data::readArg] "
-            << sign;
-    #endif
+        #ifdef QT_DEBUG
+            qDebug() << "undefined argument type [data::readArg] " << sign;
+        #endif
     }
 }
 
